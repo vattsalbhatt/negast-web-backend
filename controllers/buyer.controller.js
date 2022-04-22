@@ -6,7 +6,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 const newToken = (item) => {
-  return jwt.sign({ item }, "ThisIsSakthReddy1111");
+  return jwt.sign({ item }, "VattsalBhatt");
 };
 
 //Create and before check email
