@@ -12,11 +12,15 @@ const buyerController = require("./controllers/buyer.controller");
 const sellerController = require("./controllers/seller.controller");
 const categoryController = require("./controllers/category.controller");
 const productController = require("./controllers/product.controller");
+const postController = require("./controllers/post.controller");
+const bidController = require("./controllers/bid.controller");
 
 app.use("/buyers", buyerController);
 app.use("/sellers", sellerController);
 app.use("/categories", categoryController);
 app.use("/products", productController);
+app.use("/posts", postController);
+app.use("/bids", bidController);
 
 app.listen(PORT, async () => {
   try {
