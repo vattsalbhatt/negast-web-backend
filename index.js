@@ -13,8 +13,8 @@ const sellerController = require("./controllers/seller.controller");
 const categoryController = require("./controllers/category.controller");
 const productController = require("./controllers/product.controller");
 
-app.use("/buyer", buyerController);
-app.use("/seller", sellerController);
+app.use("/buyers", buyerController);
+app.use("/sellers", sellerController);
 app.use("/categories", categoryController);
 app.use("/products", productController);
 
