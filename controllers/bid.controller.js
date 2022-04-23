@@ -32,6 +32,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+//post id based api
+router.get("/post/:postid", async (req, res) => {
+  try {
+    const item = await Bid.find({ post: { _id: req.params.postid } })
+      .populate({ path: "post" })
+      .populate({ path: "seller" })
+      .lean()
+      .exec();
+    return res.status(201).send(item);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
 //get one
 router.get("/:id", async (req, res) => {
   try {
