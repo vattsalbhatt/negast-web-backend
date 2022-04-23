@@ -7,7 +7,7 @@ const sellerSchema = new mongoose.Schema(
     lastName: { type: String, required: true },
     mobile: { type: String, required: true, length: 10 },
     email: { type: String, required: true },
-    profile: { type: String, required: true },
+    profile: { type: String, default: "seller"},
     password: { type: String, required: true },
   },
   {

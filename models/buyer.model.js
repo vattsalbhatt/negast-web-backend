@@ -7,7 +7,7 @@ const buyerSchema = new mongoose.Schema(
     lastName: { type: String, required: true },
     mobile: { type: String, required: true, length: 10 },
     email: { type: String, required: true },
-    profile: { type: String, required: true },
+    profile: { type: String, default: "buyer" },
     password: { type: String, required: true },
   },
   {
@@ -23,7 +23,7 @@ buyerSchema.pre("save", function (next) {
   return next();
 });
 
-Schema.methods.checkPassword = function (password) {
+buyerSchema.methods.checkPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 
