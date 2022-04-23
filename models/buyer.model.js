@@ -23,7 +23,7 @@ buyerSchema.pre("save", function (next) {
   return next();
 });
 
-buyerSchema.methods.checkPassword = function (password) {
+Schema.methods.checkPassword = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 
