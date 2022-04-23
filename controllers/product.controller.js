@@ -10,6 +10,17 @@ const Category = require("../models/category.model");
 
 // }
 //create product
+// BRAND API
+router.get("/brand", async (req, res) => {
+  try {
+    const query = req.query.filter;
+    const items = await Product.find({ brand: query }).populate().lean().exec();
+    return res.send(items);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const product = await Product.create(req.body);
