@@ -46,6 +46,20 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//get user specific post
+router.get("/buyer/:buyerid", async (req, res) => {
+  try {
+    const item = await Post.find({ buyer: req.params.buyerid })
+      .populate({ path: "product" })
+      .populate({ path: "buyer" })
+      .lean()
+      .exec();
+    return res.status(201).send(item);
+  } catch (err) {
+    return res.status(500).send(err.message);
+  }
+});
+
 //patch
 
 router.patch("/:id", async (req, res) => {
